@@ -1,0 +1,192 @@
+.list-show-page {
+  height: 100%;
+}
+
+.list-show {
+  width: 58%;
+  float: right;
+  background: white;
+  margin: 20px 4%;
+  padding: 20px;
+  -webkit-box-shadow: 0 10px 6px -6px black;
+    -moz-box-shadow: 0 10px 6px -6px black;
+      box-shadow: 0 10px 6px -6px black;
+}
+
+.list-details {
+  line-height: 30px;
+  vertical-align: middle;
+  height: 30px;
+  padding: 0;
+}
+
+.list-details > h1 {
+  font-size: 35px;
+  display: inline;
+}
+
+.list-details > a {
+  display: inline;
+  float: left;
+  width: 50px;
+  margin-right: 10px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #2196F3;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+.search-users {
+  display: inline;
+  float: right;
+}
+
+.add-user-field {
+  display: inline;
+  width: 200px;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.update-list-name {
+  width: 200px;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+.list-show > a {
+  display: block;
+  width: 100px;
+  height: 30px;
+  margin: 10px 0;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #2196F3;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  border: none;
+  line-height: 30px;
+  vertical-align: center;
+}
+
+.list-form-submit, .list-form-update, .user-add-button, .new-item-form-submit {
+  display: inline;
+  float: right;
+  width: 50px;
+  height: 25px;
+  margin-left: 10px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #2196F3;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  border: none;
+}
+
+.new-item-form-submit {
+  width: 7%
+}
+
+.list-form-update {
+  float: left;
+  margin: 0 10px 0 0;
+  width: 60px;
+}
+
+.search-users > ul {
+  position: absolute;
+  width: 210px;
+}
+
+.search-result-item {
+  background: #2196F3;
+  padding: 5px 5px 5px 10px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  border-bottom: 1px solid black;
+}
+
+.user-add-button {
+  background-color: #90CAF9;
+  height: 30px;
+}
+
+.user-add-button:hover {
+  background-color: #0D47A1;
+}
+
+.new-item-form {
+  margin: 20px 0;
+}
+
+.new-item-form > input[type="text"]{
+  display: inline;
+  padding: 3px 5px;
+  border-radius: 5px;
+  height: 21px;
+  border: 1px solid rgb(166, 166, 166);
+}
+
+.new-item-form > input[type="text"]:focus {
+  outline: none;
+}
+
+.new-item-name {
+  width: 35%;
+}
+
+.new-item-quantity {
+  width: 11%;
+}
+
+.new-item-user {
+  font-size: 14px;
+  padding: 5px;
+  background: url('/assets/select-arrow.png') no-repeat 96% 0;
+  height: 29px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  width: 35%;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.new-item-user:focus,
+.update-list-name:focus,
+.add-user-field:focus,
+.new-list-name:focus {
+    outline: none;
+}
+
+.list-item > button {
+  display: inline;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  border: none;
+}
+
+.item-not-purchased {
+  background-color: #2196F3;
+}
+
+.item-not-purchased:hover {
+  background-color: #2196F3;
+  cursor: pointer;
+}
+
+.item-purchased {
+  font-size: 15px;
+  background-color: #0D47A1;
+}
+
+.item-purchased:hover {
+  background-color: #0D47A1;
+  cursor: pointer;
+}

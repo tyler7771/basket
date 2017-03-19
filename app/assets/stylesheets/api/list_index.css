@@ -1,0 +1,91 @@
+.list-index {
+  height: 100%;
+  background: #0D47A1;
+  width: 25%;
+  padding: 20px;
+  display: inline-block;
+}
+
+.list-index > h1 {
+  color: white;
+  font-size: 30px;
+}
+
+.new-list {
+  margin: 20px 0 10px;
+}
+
+.new-list > h2 {
+  display: inline;
+  color: white;
+  font-size: 25px;
+}
+
+.new-list > a {
+  display: inline;
+  float: right;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #2196F3;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+.new-list > a:hover {
+  background-color: #1565C0;
+  cursor: pointer;
+}
+
+.list-index-item {
+  background: white;
+  height: 60px;
+  margin: 10px 0;
+  line-height: 60px;
+  vertical-align: middle;
+  padding: 0 10px;
+  -webkit-box-shadow: 0 10px 6px -6px black;
+    -moz-box-shadow: 0 10px 6px -6px black;
+      box-shadow: 0 10px 6px -6px black;
+}
+
+.list-index-item:hover {
+  -webkit-box-shadow: 0 0 20px #BBDEFB;
+   -moz-box-shadow: 0 0 20px #BBDEFB;
+        box-shadow: 0 0 20px #BBDEFB;
+}
+
+.list-index-item > h2 {
+  font-size: 30px;
+  margin: 15px 0;
+  display: inline;
+}
+
+.list-index-item > img {
+  height: 40px;
+  margin: 10px 0;
+  float: right;
+  display: inline;
+}
+
+.new-list-form {
+  margin-top: 15px;
+}
+
+.new-list-form > input[type="text"] {
+  width: 65%;
+  display: inline;
+  height: 23px;
+}
+
+.new-list-form > input[type="submit"] {
+  display: inline;
+  float: right;
+  width: 20%;
+  padding: 0 10px;
+  border-radius: 5px;
+  background-color: #2196F3;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  margin: 0;
+  height: 27px;
+}

@@ -1,0 +1,28 @@
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  text-decoration: none;
+  color:inherit;
+  margin: 0;
+  box-sizing: inherit;
+  font-size: inherit;
+  min-height: inherit;
+  list-style: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+ul {
+  padding: 0;
+}
+
+body, main, html {
+  height: 100%;
+  background: #90CAF9;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+}
