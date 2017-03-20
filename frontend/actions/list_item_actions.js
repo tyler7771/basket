@@ -9,9 +9,9 @@ export const DELETE_LIST_ITEM = "DELETE_LIST_ITEM";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const REMOVE_ERRORS = "REMOVE_ERRORS";
 
-export const fetchListItems = (list) => ({
+export const fetchListItems = (params) => ({
   type: FETCH_LIST_ITEMS,
-  list
+  params
 });
 
 export const fetchListItem = (list) => ({

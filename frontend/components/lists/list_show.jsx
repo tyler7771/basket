@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import ListIndex from './list_index_container';
-import ListItem from './list_item';
+import ListItem from './list_item_container';
+import ListItemForm from './list_item_form_container';
 
 class ListShow extends React.Component {
   constructor(props) {
@@ -10,13 +11,8 @@ class ListShow extends React.Component {
     this.state = {updateListFormStatus: "Closed",
                   listName: "",
                   userSearch: "",
-                  name: "",
-                  quantity: "",
-                  purchased: false,
-                  user_id: "",
                   list_id: this.props.params.listid};
     this.handleUpdate = this.handleUpdate.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.updateSearchParams = this.updateSearchParams.bind(this);
     this.handleSearchAdd = this.handleSearchAdd.bind(this);
@@ -25,10 +21,14 @@ class ListShow extends React.Component {
   componentDidMount() {
     const listId = this.props.params.listid;
     this.props.fetchList(listId);
-    this.props.fetchListItems({id: listId});
+    this.props.fetchListItems({type:"List", id: listId});
     this.props.fetchUsers({id: listId});
     if (this.props.list) {
       this.setState({listName: this.props.list.name});
+    }
+
+    if (!this.includesCurrentUser()) {
+      hashHistory.push('/');
     }
   }
 
@@ -41,7 +41,19 @@ class ListShow extends React.Component {
     }
     if (newProps.list) {
       this.setState({listName: newProps.list.name});
+    if (!this.includesCurrentUser()) {
+      hashHistory.push('/');
     }
+    }
+  }
+
+  includesCurrentUser() {
+    for (let i = 0; i < this.props.users.length; i++){
+      if (this.props.users[i].id === this.props.currentUser.id) {
+        return true;
+      }
+    }
+    return false;
   }
 
   name (name) {
@@ -129,51 +141,6 @@ class ListShow extends React.Component {
     }
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const item = this.state;
-    if (item.quantity === "") {
-      item.quantity = 1;
-    } else {
-      item.quantity = parseInt(item.quantity);
-    }
-    if (item.user_id !== "") {
-      item.user_id = parseInt(item.user_id);
-    }
-    this.props.createListItem({item});
-  }
-
-  newListItemForm() {
-    return(
-      <form onSubmit={this.handleSubmit} className="new-item-form">
-        <input type="text"
-          className="new-item-name"
-          placeholder="Item Name"
-          value={this.state.name}
-          onChange={this.update("name")} />
-        <select
-          className="new-item-user"
-          value={this.state.user_id}
-          onChange={this.update("user_id")}>
-          <option value="">User</option>
-          {
-            this.props.users.map(user => (
-              <option key={user.id}
-                value={user.id}>{user.username}
-              </option>
-            ))
-          }
-        </select>
-        <input type="text"
-          className="new-item-quantity"
-          placeholder="Quantity"
-          value={this.state.quantity}
-          onChange={this.update("quantity")} />
-        <input className="new-item-form-submit" type="submit" value="Add" />
-      </form>
-    );
-  }
-
   render () {
     const list = this.props.list;
     if (!list) {
@@ -184,16 +151,18 @@ class ListShow extends React.Component {
         <ListIndex className="list-index-component"/>
         <div className="list-show">
           {this.listDetails()}
-          {this.newListItemForm()}
+          <ListItemForm formType="Add"
+            listId={this.props.params.listid}
+            action={this.props.createListItem}/>
           <ul>
             {
               this.props.listItems.map(listItem => (
-                <ListItem
-                  key={listItem.id}
-                  deleteListItem={this.props.deleteListItem}
-                  updateListItem={this.props.updateListItem}
-                  listItem={listItem} />
-              ))
+                  <ListItem
+                    key={listItem.id}
+                    listItem={listItem}
+                    itemType="list" />
+                )
+              )
             }
           </ul>
         </div>

@@ -6,5 +6,8 @@
         json.extract! item.user, :id, :username
       end
     end
+    json.set! :list do
+      json.extract! item.list, :id, :name
+    end
   end
 end

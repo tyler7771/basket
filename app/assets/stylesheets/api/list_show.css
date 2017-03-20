@@ -37,6 +37,10 @@
   text-shadow: 1px 1px 2px black;
 }
 
+.list-details > a:hover {
+  cursor: pointer;
+}
+
 .search-users {
   display: inline;
   float: right;
@@ -85,7 +89,15 @@
 }
 
 .new-item-form-submit {
-  width: 7%
+  width: 9%
+}
+
+.new-item-form-submit:hover,
+.user-add-button:hover,
+.new-item-user:hover,
+.list-form-update:hover,
+.item-purchased:hover {
+  cursor: pointer;
 }
 
 .list-form-update {
@@ -137,7 +149,7 @@
 }
 
 .new-item-quantity {
-  width: 11%;
+  width: 9%;
 }
 
 .new-item-user {
@@ -157,19 +169,35 @@
 .new-item-user:focus,
 .update-list-name:focus,
 .add-user-field:focus,
-.new-list-name:focus {
+.new-list-name:focus,
+.item-purchased:focus,
+.item-not-purchased:focus {
     outline: none;
+}
+
+.list-item {
+  border-top: 1px solid #ccc;
+  height: 50px;
+  padding: 10px;
+}
+
+.list-item-form {
+  padding: 1px;
+  border-top: 1px solid #ccc;
 }
 
 .list-item > button {
   display: inline;
-  width: 80px;
+  width: 90px;
   height: 30px;
+  float: left;
+  margin: 5px 0;
   text-align: center;
   border-radius: 5px;
   color: white;
   text-shadow: 1px 1px 2px black;
   border: none;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .item-not-purchased {
@@ -186,7 +214,55 @@
   background-color: #0D47A1;
 }
 
-.item-purchased:hover {
-  background-color: #0D47A1;
+.list-item-quantity{
+  float: left;
+  display: inline;
+  margin: -9px 2%;
+  font-size: 60px;
+}
+
+.list-item-title {
+  float: left;
+  display: inline;
+  margin: 0 2% 0 0;
+  font-size: 45px;
+}
+
+.list-item-delete {
+  height: 40px;
+  margin: 5px 0;
+  float: right;
   cursor: pointer;
+}
+
+.list-item > a {
+  display: inline;
+  width: 80px;
+  height: 30px;
+  margin: 5px 2%;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  border: none;
+  background-color: #2196F3;
+  float: right;
+  padding: 5px 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.list-item > a:hover {
+  cursor: pointer;
+  background-color: #0D47A1;
+}
+
+.list-item-association-info {
+  display: inline;
+  float: right;
+  height: 40px;
+  margin: 4px 1%;
+  text-align: right;
+  font-size: 18px;
 }

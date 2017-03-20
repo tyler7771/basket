@@ -15,7 +15,6 @@ const ListItemsReducer = (oldState = _default, action) => {
     case RECEIVE_ALL_LIST_ITEMS:
       return {listItem: action.listItems, errors: []};
     case RECEIVE_LIST_ITEM:
-    debugger
     const listItem = merge({}, oldState.listItem);
       listItem[action.listItem.id] = action.listItem;
       return merge({}, oldState, {listItem, errors: []});

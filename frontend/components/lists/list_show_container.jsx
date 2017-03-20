@@ -21,12 +21,12 @@ const mapDispatchToProps = dispatch => ({
     fetchUsers: params => dispatch(fetchUsers(params)),
     fetchSearchResults: params => dispatch(fetchSearchResults(params)),
     createListItem: listItem => dispatch(createListItem(listItem)),
-    fetchListItems: id => dispatch(fetchListItems(id)),
+    fetchListItems: params => dispatch(fetchListItems(params)),
     deleteListItem: id => dispatch(deleteListItem(id)),
     updateListItem: item => dispatch(updateListItem(item)),
     createAssociation: params => dispatch(createAssociation(params))
 });
-console.log(createAssociation);
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

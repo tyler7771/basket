@@ -1,6 +1,10 @@
 class Api::ListItemsController < ApplicationController
   def index
-    @items = List.find(params[:id]).list_items.includes(:user)
+    if params[:type] == "List"
+      @items = List.find(params[:id]).list_items.includes(:user)
+    else
+      @items = User.find_by(id: current_user.id).list_items.includes(:list)
+    end
     render :index
   end
 

@@ -2,7 +2,7 @@ export const createListItem = (item, success, error) => {
   $.ajax({
     method: 'POST',
     url: 'api/list_items/',
-    data: item,
+    data: {item},
     success,
     error
   });
@@ -18,11 +18,11 @@ export const updateListItem = (item, success, error) => {
   });
 };
 
-export const fetchListItems = (list, success) => {
+export const fetchListItems = (params, success) => {
   $.ajax({
     method: "GET",
     url: "api/list_items",
-    data: list,
+    data: params,
     success
   });
 };

@@ -29,7 +29,7 @@ const ListItemsMiddleware = ({ getState, dispatch }) => next => action => {
 
   switch (action.type) {
     case FETCH_LIST_ITEMS:
-      fetchListItems(action.list, fetchAllListItemsSuccess);
+      fetchListItems(action.params, fetchAllListItemsSuccess);
       return next(action);
     case FETCH_LIST_ITEM:
       fetchListItem(action.list, fetchListItemSuccess);

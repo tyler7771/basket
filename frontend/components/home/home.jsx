@@ -2,6 +2,7 @@ import React from 'react';
 import MediaQuery from 'react-responsive';
 import { hashHistory, withRouter, Link } from 'react-router';
 import ListIndex from '../lists/list_index_container';
+import UserItems from '../lists/user_items_container';
 
 class Home extends React.Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class Home extends React.Component {
     return (
       <div className="welcome-page">
         <ListIndex />
+        <UserItems />
       </div>
     );
   }

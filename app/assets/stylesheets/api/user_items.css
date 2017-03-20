@@ -1,0 +1,27 @@
+.user-items-show {
+  width: 58%;
+  float: right;
+  background: white;
+  margin: 20px 4%;
+  padding: 20px;
+  -webkit-box-shadow: 0 10px 6px -6px black;
+    -moz-box-shadow: 0 10px 6px -6px black;
+      box-shadow: 0 10px 6px -6px black;
+}
+
+.user-items-details {
+  line-height: 30px;
+  vertical-align: middle;
+  height: 30px;
+  padding: 0 0 20px;
+}
+
+.user-items-details > h1 {
+  font-size: 35px;
+}
+
+.no-items {
+  padding-top: 10px;
+  font-size: 30px;
+  border-top: 1px solid #ccc;
+}
