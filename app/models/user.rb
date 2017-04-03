@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :user_list_associations
   has_many :list_items
+  has_many :comments
   has_many :lists, :through => :user_list_associations
   attr_reader :password
   after_initialize :ensure_session_token

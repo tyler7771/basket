@@ -5,6 +5,7 @@ import UserMiddleware from './user_middleware';
 import ListItemMiddleware from './list_item_middleware';
 import SearchResultMiddleware from './search_middleware';
 import AssociationMiddleware from './association_middleware';
+import CommentMiddleware from './comment_middleware';
 
 const RootMiddleware = applyMiddleware(
   SessionMiddleware,
@@ -12,7 +13,8 @@ const RootMiddleware = applyMiddleware(
   UserMiddleware,
   ListItemMiddleware,
   SearchResultMiddleware,
-  AssociationMiddleware
+  AssociationMiddleware,
+  CommentMiddleware
 );
 
 export default RootMiddleware;
