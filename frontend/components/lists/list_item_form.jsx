@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import ListIndex from './list_index_container';
 import ListItem from './list_item_container';
 
-class ListShow extends React.Component {
+class ListItemForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -118,4 +118,4 @@ class ListShow extends React.Component {
   }
 }
 
-export default ListShow;
+export default ListItemForm;

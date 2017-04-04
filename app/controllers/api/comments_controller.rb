@@ -1,20 +1,17 @@
 class Api::CommentsController < ApplicationController
   def index
-    @comments = current_user.comments
+    @comments = List.find(params[:id]).comments
     render :index
   end
 
   def show
-    @comment = List.find(params[:id])
-    @users = @comment.users
+    @comment = Comment.find(params[:id])
     render :show
   end
 
   def create
-    @comment = List.new(comment_params)
+    @comment = Comment.new(comment_params)
     if @comment.save
-      UserListAssociation.create(user_id: current_user.id, comment_id: @comment.id)
-      @users = @comment.users
       render :show
     else
       render :json => { :errors => @comment.errors.full_messages }, :status => 422
@@ -22,10 +19,9 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
-    @comment = List.find(params[:id])
+    @comment = Comment.find(params[:id])
 
     if @comment.update_attributes(comment_params)
-      @users = @comment.users
       render :show
     else
       render :json => { :errors => @comment.errors.full_messages }, :status => 422
@@ -33,19 +29,13 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = List.find(params[:id])
-    if @comment.user_comment_associations.length == 1
-      @association = @comment.user_comment_associations.first
-      @comment.destroy
-    else
-      @association = UserListAssociation.where(user_id: current_user.id, comment_id: @comment.id)[0]
-    end
-    @association.destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
     render :json => @comment
   end
 
   private
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :list_id)
+    params.require(:comment).permit(:content, :user_id, :list_id, :list_item_id)
   end
 end

@@ -1,0 +1,77 @@
+.comments-show {
+  width: 58%;
+  float: right;
+  clear: right;
+  top: -200px;
+  background: white;
+  margin: 0 4% 20px;
+  padding: 20px;
+  -webkit-box-shadow: 0 10px 6px -6px black;
+    -moz-box-shadow: 0 10px 6px -6px black;
+      box-shadow: 0 10px 6px -6px black;
+}
+
+.comment-header > h1 {
+  font-size: 35px;
+  display: inline;
+}
+
+.comment-header > a {
+  display: inline;
+  float: right;
+  width: 11%;
+  height: 30px;
+  line-height: 30px;
+  margin: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #2196F3;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  border: none;
+}
+
+.new-comment-form {
+  margin: 10px 0;
+}
+
+.new-comment-content {
+  width: 60%;
+  height: 60px;
+  padding: 5px;
+  border: 1px solid rgb(166, 166, 166);
+  border-radius: 5px;
+}
+
+.new-comment-item-and-submit {
+  float: right;
+  width: 35%;
+}
+
+.new-comment-item {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  padding: 5px;
+  background: url(/assets/select-arrow.png) no-repeat 96% 0;
+  height: 29px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.new-comment-item-and-submit > input[type="submit"] {
+  display: inline;
+    float: right;
+    width: 26%;
+    height: 25px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #2196F3;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    border: none;
+}

@@ -3,4 +3,5 @@ class ListItem < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :list
+  has_many :comments
 end

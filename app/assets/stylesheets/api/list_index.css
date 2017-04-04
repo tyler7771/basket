@@ -4,6 +4,7 @@
   width: 25%;
   padding: 20px;
   display: inline-block;
+  position: absolute;
 }
 
 .list-index > h1 {

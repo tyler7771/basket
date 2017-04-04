@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import ListIndex from './list_index_container';
 import ListItem from './list_item_container';
+import CommentIndex from './../comments/comment_index_container';
 import ListItemForm from './list_item_form_container';
 
 class ListShow extends React.Component {
@@ -9,6 +10,7 @@ class ListShow extends React.Component {
     super(props);
 
     this.state = {updateListFormStatus: "Closed",
+                  commentFormStatus: "Closed",
                   listName: "",
                   userSearch: "",
                   list_id: this.props.params.listid};
@@ -22,13 +24,10 @@ class ListShow extends React.Component {
     const listId = this.props.params.listid;
     this.props.fetchList(listId);
     this.props.fetchListItems({type:"List", id: listId});
+    this.props.fetchComments({id: listId});
     this.props.fetchUsers({id: listId});
     if (this.props.list) {
       this.setState({listName: this.props.list.name});
-    }
-
-    if (!this.includesCurrentUser()) {
-      hashHistory.push('/');
     }
   }
 
@@ -36,24 +35,13 @@ class ListShow extends React.Component {
     if (newProps.params.listid !== this.props.params.listid) {
       const listId = newProps.params.listid;
       this.props.fetchList(listId);
-      this.props.fetchListItems({id: listId});
+      this.props.fetchListItems({type: "List", id: listId});
+      this.props.fetchComments({id: listId});
       this.props.fetchUsers({id: listId});
     }
     if (newProps.list) {
       this.setState({listName: newProps.list.name});
-    if (!this.includesCurrentUser()) {
-      hashHistory.push('/');
     }
-    }
-  }
-
-  includesCurrentUser() {
-    for (let i = 0; i < this.props.users.length; i++){
-      if (this.props.users[i].id === this.props.currentUser.id) {
-        return true;
-      }
-    }
-    return false;
   }
 
   name (name) {
@@ -166,6 +154,7 @@ class ListShow extends React.Component {
             }
           </ul>
         </div>
+        <CommentIndex listid={this.props.params.listid} />
       </div>
     );
   }
