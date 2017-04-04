@@ -75,3 +75,53 @@
     text-shadow: 1px 1px 2px black;
     border: none;
 }
+
+.comment {
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.comment-title {
+  font-size: 25px;
+}
+
+.comment-item-content {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.comment-edit{
+  display: block;
+  height: 35px;
+}
+
+.comment-edit > a {
+  display: inline;
+  width: 80px;
+  height: 30px;
+  margin: 5px 2%;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  border: none;
+  background-color: #2196F3;
+  float: right;
+  padding: 5px 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.comment-edit > a:hover {
+  cursor: pointer;
+  background-color: #0D47A1;
+}
+
+.comment-item-delete {
+  height: 40px;
+  margin: 5px 0;
+  float: right;
+  cursor: pointer;
+}

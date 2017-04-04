@@ -19,9 +19,9 @@ class CommentForm extends React.Component {
     } else {
       if (this.props.comment) {
         if (this.props.formType.formType === "Update") {
-          this.setState({name: this.props.comment.content,
+          this.setState({content: this.props.comment.content,
             list_item_id: this.props.comment.list_item_id,
-            user_id: this.props.comment.user_id,
+            user_id: this.props.comment.user.id,
             list_id: this.props.listId});
         }
       }
@@ -38,9 +38,9 @@ class CommentForm extends React.Component {
           if (newProps.comment.id !== this.props.comment.id) {
             this.props.fetchListItems({id: newProps.listId});
           }
-          this.setState({name: this.props.comment.content,
+          this.setState({content: this.props.comment.content,
             list_item_id: this.props.comment.list_item_id,
-            user_id: this.props.comment.user_id,
+            user_id: this.props.comment.user.id,
             list_id: this.props.listId});
         }
       }
@@ -62,6 +62,7 @@ class CommentForm extends React.Component {
     if (comment.list_item_id !== "") {
       comment.list_item_id = parseInt(comment.list_item_id);
     }
+    comment.list_id = parseInt(comment.list_id);
 
     this.props.action(comment);
 

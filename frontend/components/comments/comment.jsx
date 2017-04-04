@@ -16,7 +16,7 @@ class CommentItem extends React.Component {
     this.props.deleteComment(this.props.comment.id);
   }
 
-  name (name) {
+  name(name) {
     return name.charAt(0).toUpperCase() + name.slice(1);
   }
 
@@ -27,16 +27,18 @@ class CommentItem extends React.Component {
   }
 
   commentTitle() {
+    const name = this.name(this.props.comment.user.username);
     if (this.props.comment.item) {
+      const item = this.name(this.props.comment.item.name);
       return (
         <p className="comment-title">
-          {this.name(this.props.comment.user.username)} in regards to {this.name(this.props.comment.item.name)}:
+          {name} in regards to {item}:
         </p>
       );
     } else {
       return (
         <p className="comment-title">
-          {this.props.comment.user.username}:
+          {name}:
         </p>
       );
     }
@@ -64,7 +66,6 @@ class CommentItem extends React.Component {
         <div className="comment-item">
           {this.commentTitle()}
           <p className="comment-item-content">{comment.content}</p>
-          {this.commentEdit()}
         </div>
       );
     } else {
@@ -72,7 +73,8 @@ class CommentItem extends React.Component {
         <div className="comment-item-form">
           <CommentForm formType="Update"
             comment={this.props.comment}
-            commentId={this.props.comment.comment_id}
+            commentId={this.props.comment.id}
+            listId={this.props.listId}
             closeUpdateForm={this.closeUpdateForm}
             action={this.props.updateComment}/>
         </div>
@@ -89,8 +91,9 @@ class CommentItem extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <li>
+        <li className="comment">
           {this.display()}
+          {this.commentEdit()}
         </li>
       );
     }

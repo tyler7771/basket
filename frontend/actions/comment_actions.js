@@ -24,9 +24,9 @@ export const createComment = (comment) => ({
   comment
 });
 
-export const updateComment = (item) => ({
+export const updateComment = (comment) => ({
   type: UPDATE_COMMENT,
-  item
+  comment
 });
 
 export const deleteComment = (id) => ({

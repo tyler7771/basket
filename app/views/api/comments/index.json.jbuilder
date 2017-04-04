@@ -1,7 +1,7 @@
 @comments.each do |comment|
   json.set! comment.id do
     json.extract! comment, :id, :content
-    if comment.list_item_id
+    if comment.list_item_id && comment.list_item_id != 0
       json.set! :item do
         json.extract! comment.list_item, :id, :name
       end
