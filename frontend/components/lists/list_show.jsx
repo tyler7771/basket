@@ -13,11 +13,13 @@ class ListShow extends React.Component {
                   commentFormStatus: "Closed",
                   listName: "",
                   userSearch: "",
-                  list_id: this.props.params.listid};
+                  list_id: this.props.params.listid,
+                  emails: ""};
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.updateSearchParams = this.updateSearchParams.bind(this);
     this.handleSearchAdd = this.handleSearchAdd.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +29,7 @@ class ListShow extends React.Component {
     this.props.fetchComments({id: listId});
     this.props.fetchUsers({id: listId});
     if (this.props.list) {
+      this.handleEmail();
       this.setState({listName: this.props.list.name});
     }
   }
@@ -40,6 +43,7 @@ class ListShow extends React.Component {
       this.props.fetchUsers({id: listId});
     }
     if (newProps.list) {
+      this.handleEmail();
       this.setState({listName: newProps.list.name});
     }
   }
@@ -76,7 +80,10 @@ class ListShow extends React.Component {
       return (
         <div className="list-details">
           <h1>{this.name(this.state.listName)}</h1>
-          <a onClick={ () => this.setState({updateListFormStatus: "Open"}) }>
+          <a className="email-button"
+            href={`mailto:${this.state.emails}?subject=Check Out Our List!&body=${window.location.href}`}>Email</a>
+          <a className="edit-button"
+            onClick={ () => this.setState({updateListFormStatus: "Open"}) }>
             Edit
           </a>
           <form className="search-users">
@@ -127,6 +134,17 @@ class ListShow extends React.Component {
         </ul>
       );
     }
+  }
+
+  handleEmail() {
+    const emailArray = [];
+
+    this.props.users.map(user => (
+      emailArray.push(user.email)
+      )
+    );
+    const emails = emailArray.join(';');
+    this.setState({emails: emails});
   }
 
   render () {
