@@ -53,8 +53,13 @@ class Home extends React.Component {
   render () {
     return (
       <div className="welcome-page">
-        <ListIndex />
-        <UserItems />
+        <MediaQuery query='(max-device-width: 1224px)'>
+          <ListIndex type="mobile" />
+        </MediaQuery>
+        <MediaQuery query='(min-device-width: 1224px)'>
+          <ListIndex />
+          <UserItems />
+        </MediaQuery>
       </div>
     );
   }

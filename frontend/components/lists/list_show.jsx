@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
+import MediaQuery from 'react-responsive';
 import ListIndex from './list_index_container';
 import ListItem from './list_item_container';
 import CommentIndex from './../comments/comment_index_container';
@@ -154,7 +155,9 @@ class ListShow extends React.Component {
     }
     return (
       <div className="list-show-page">
-        <ListIndex className="list-index-component"/>
+        <MediaQuery query='(min-device-width: 1224px)'>
+          <ListIndex className="list-index-component"/>
+        </MediaQuery>
         <div className="list-show">
           {this.listDetails()}
           <ListItemForm formType="Add"

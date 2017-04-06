@@ -20,7 +20,7 @@ class ListIndexItem extends React.Component {
   render () {
     return (
       <Link to={`/list/${this.props.list.id}`}>
-        <li className="list-index-item">
+        <li className={this.props.type === "mobile" ? "list-index-item-mobile" : "list-index-item"}>
           <h2 className="list-index-title">{this.name(this.props.list.name)}</h2>
           <img onClick={this.handleDelete} className="list-delete" src="/assets/trash_can.png" />
         </li>

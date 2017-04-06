@@ -19,10 +19,12 @@ ul {
 
 body, main, html {
   height: 100%;
+  overflow: auto;
   background: #90CAF9;
 }
 
 .app {
   height: 100%;
+  overflow: auto;
   width: 100%;
 }

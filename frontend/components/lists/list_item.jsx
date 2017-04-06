@@ -63,26 +63,29 @@ class ListItem extends React.Component {
       return (
         <div className="list-item-association-info">
           <p>Assigned to:</p>
-          <p>{this.props.listItem.user.username}</p>
+          <p>{this.name(this.props.listItem.user.username)}</p>
         </div>
       );
     } else if (this.props.itemType === "user") {
       return (
         <div className="list-item-association-info">
           <p>Assigned to List:</p>
-          <p>{this.props.listItem.list.name}</p>
+          <Link to={`/list/${this.props.listItem.list.id}`}>{this.name(this.props.listItem.list.name)}</Link>
         </div>
       );
     }
   }
 
-  includesCurrentUser() {
-    for (let i = 0; i < this.props.users.length; i++){
-      if (this.props.users[i].id === this.props.currentUserId) {
-        this.setState({currentUserIncluded: true});
-      }
+  titleDisplay(){
+    if (this.props.listItem.user_id) {
+      return (
+        <h2 className="list-item-title-assigned">{this.name(this.props.listItem.name)}</h2>
+      );
+    } else {
+      return (
+        <h2 className="list-item-title">{this.name(this.props.listItem.name)}</h2>
+      );
     }
-    this.setState({currentUserIncluded: false});
   }
 
   display() {
@@ -92,7 +95,7 @@ class ListItem extends React.Component {
         <div className="list-item">
           {this.itemPurchased()}
           <p className="list-item-quantity">{listItem.quantity}</p>
-          <h2 className="list-item-title">{this.name(listItem.name)}</h2>
+          {this.titleDisplay()}
           <img onClick={this.handleDelete}
             className="list-item-delete"
             src="/assets/trash_can.png" />

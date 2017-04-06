@@ -7,16 +7,12 @@ class Header extends React.Component {
     super(props);
   }
 
-  listReturnButton () {
-
-  }
-
   render () {
     return (
       <header>
         <div className="header-content">
           <MediaQuery query='(max-device-width: 1224px)'>
-            {this.listReturnButton()}
+            <Link to="/" className="return-home">Home</Link>
           </MediaQuery>
           <Link to="/" className="header-title">Basket</Link>
           <a onClick={this.props.logout} className="logout">Logout</a>

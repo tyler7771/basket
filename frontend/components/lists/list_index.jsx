@@ -14,6 +14,10 @@ class ListIndex extends React.Component {
     this.props.fetchLists();
   }
 
+  name (name) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
+
   update() {
     return e => this.setState({
       name: e.currentTarget.value
@@ -42,7 +46,7 @@ class ListIndex extends React.Component {
   newListForm() {
     if (this.state.newListFormStatus === "Open") {
       return (
-        <form onSubmit={this.handleSubmit} className="new-list-form">
+        <form onSubmit={this.handleSubmit} className={this.props.type === "mobile" ? "list-form-mobile" : "new-list-form"}>
           <input type="text"
             className="new-list-name"
             placeholder="List Name"
@@ -56,9 +60,9 @@ class ListIndex extends React.Component {
 
   render () {
     return (
-      <div className="list-index">
-        <h1>{this.props.currentUser.username}</h1>
-        <div className="new-list">
+      <div className={this.props.type === "mobile" ? "list-index-mobile" : "list-index"}>
+        <h1>{this.name(this.props.currentUser.username)}</h1>
+        <div className={this.props.type === "mobile" ? "new-list-mobile" : "new-list"}>
           <h2>My Lists</h2>
           {this.newListButton()}
         </div>
@@ -69,7 +73,8 @@ class ListIndex extends React.Component {
                 <ListIndexItem
                   key={list.id}
                   deleteList={this.props.deleteList}
-                  list={list} />
+                  list={list}
+                  type={this.props.type} />
               ))
             }
           </ul>
