@@ -76,20 +76,22 @@ class ListShow extends React.Component {
       username: results});
   }
 
-  listDetails() {
+  listDetails(type) {
     if (this.state.updateListFormStatus === "Closed") {
       return (
-        <div className="list-details">
+        <div className={type === "mobile" ? "list-details-mobile" : "list-details"}>
           <h1>{this.name(this.state.listName)}</h1>
-          <a className="email-button"
-            href={`mailto:${this.state.emails}?subject=Check Out Our List!&body=${window.location.href}`}>Email</a>
-          <a className="edit-button"
-            onClick={ () => this.setState({updateListFormStatus: "Open"}) }>
-            Edit
-          </a>
-          <form className="search-users">
+          <div className={type === "mobile" ? "edit-email-mobile" : "edit-email"}>
+            <a className={type === "mobile" ? "email-button-mobile" : "email-button"}
+              href={`mailto:${this.state.emails}?subject=Check Out Our List!&body=${window.location.href}`}>Email</a>
+            <a className={type === "mobile" ? "email-button-mobile" : "email-button"}
+              onClick={ () => this.setState({updateListFormStatus: "Open"}) }>
+              Edit
+            </a>
+          </div>
+          <form className={type === "mobile" ? "search-users-mobile" : "search-users"}>
             <input type="text"
-              className="add-user-field"
+              className={type === "mobile" ? "add-user-field-mobile" : "add-user-field"}
               placeholder="Add User"
               value={this.state.userSearch}
               onChange={this.updateSearchParams} />
@@ -148,34 +150,50 @@ class ListShow extends React.Component {
     this.setState({emails: emails});
   }
 
-  render () {
+  mediaResults(type) {
     const list = this.props.list;
     if (!list) {
       return <div>Loading...</div>;
     }
     return (
+      <div className={type === "mobile" ? "list-show-mobile" : "list-show"}>
+        {this.listDetails(type)}
+        <ListItemForm formType="Add"
+          listId={this.props.params.listid}
+          action={this.props.createListItem}
+          type={type}/>
+        <ul>
+          {
+            this.props.listItems.map(listItem => (
+              <ListItem
+                key={listItem.id}
+                listItem={listItem}
+                itemType="list"
+                type={type} />
+              )
+            )
+          }
+        </ul>
+      </div>
+    );
+  }
+
+  render () {
+    return (
       <div className="list-show-page">
         <MediaQuery query='(min-device-width: 1224px)'>
           <ListIndex className="list-index-component"/>
+          {this.mediaResults("desktop")}
+          <CommentIndex
+            listid={this.props.params.listid}
+            type={"desktop"} />
         </MediaQuery>
-        <div className="list-show">
-          {this.listDetails()}
-          <ListItemForm formType="Add"
-            listId={this.props.params.listid}
-            action={this.props.createListItem}/>
-          <ul>
-            {
-              this.props.listItems.map(listItem => (
-                  <ListItem
-                    key={listItem.id}
-                    listItem={listItem}
-                    itemType="list" />
-                )
-              )
-            }
-          </ul>
-        </div>
-        <CommentIndex listid={this.props.params.listid} />
+        <MediaQuery query='(max-device-width: 1224px)'>
+          {this.mediaResults("mobile")}
+          <CommentIndex
+            listid={this.props.params.listid}
+            type={"mobile"} />
+        </MediaQuery>
       </div>
     );
   }

@@ -9,6 +9,7 @@ class CommentIndex extends React.Component {
 
     this.state = {commentFormStatus: "Closed",
                   list_id: this.props.listid};
+    this.closeCommentForm = this.closeCommentForm.bind(this);
   }
 
   componentDidMount() {
@@ -45,15 +46,20 @@ class CommentIndex extends React.Component {
       return (
         <div className="comment-header">
           <h1>Comments</h1>
-          <a onClick={ () => this.setState({commentFormStatus: "Closed"}) }>
+          <a onClick={ () => this.closeCommentForm() }>
             Close
           </a>
           <CommentForm formType="Add"
             listId={this.props.listid}
-            action={this.props.createComment}/>
+            action={this.props.createComment}
+            closeCommentForm={this.closeCommentForm}/>
         </div>
       );
     }
+  }
+
+  closeCommentForm() {
+    this.setState({commentFormStatus: "Closed"});
   }
 
   render () {

@@ -45,7 +45,8 @@ class CommentItem extends React.Component {
   }
 
   commentEdit() {
-    if (this.props.currentUser.id === this.props.comment.user.id) {
+    if (this.props.currentUser.id === this.props.comment.user.id
+      && this.state.updateCommentFormStatus === "Closed") {
       return (
         <div className="comment-edit">
           <img onClick={this.handleDelete}

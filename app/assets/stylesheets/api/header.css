@@ -1,7 +1,14 @@
-header {
+header, .mobile-header {
   height: 60px;
   background-color: #1565C0;
   border-bottom: 1px solid black;
+}
+
+.mobile-header {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-content {
@@ -12,7 +19,7 @@ header {
   text-align: center;
 }
 
-.header-title {
+.header-title, .mobile-header-title {
   font-size: 40px;
   font-family: "Courier New", Courier, monospace;
   font-weight: 100;
@@ -20,7 +27,12 @@ header {
   text-shadow: 1px 1px 1px black;
 }
 
-.logout, .return-home {
+.mobile-header-title {
+  font-size: 100px;
+  line-height: 130px;
+}
+
+.logout, .return-home, .mobile-logout, .mobile-return-home {
   float: right;
   padding: 10px;
   border-radius: 5px;
@@ -29,8 +41,14 @@ header {
   text-shadow: 1px 1px 2px black;
 }
 
-.return-home {
+.return-home, .mobile-return-home {
   float: left;
+}
+
+.mobile-return-home, .mobile-logout {
+  font-size: 40px;
+  padding: 20px;
+  margin: 20px 0;
 }
 
 .logout:hover {

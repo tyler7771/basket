@@ -9,15 +9,25 @@ class Header extends React.Component {
 
   render () {
     return (
-      <header>
-        <div className="header-content">
-          <MediaQuery query='(max-device-width: 1224px)'>
-            <Link to="/" className="return-home">Home</Link>
-          </MediaQuery>
-          <Link to="/" className="header-title">Basket</Link>
-          <a onClick={this.props.logout} className="logout">Logout</a>
-        </div>
-      </header>
+      <div>
+        <MediaQuery query='(max-device-width: 1224px)'>
+          <header className="mobile-header">
+            <div className="header-content">
+              <Link to="/" className="mobile-return-home">Home</Link>
+              <Link to="/" className="mobile-header-title">Basket</Link>
+              <a onClick={this.props.logout} className="mobile-logout">Logout</a>
+            </div>
+          </header>
+        </MediaQuery>
+        <MediaQuery query='(min-device-width: 1224px)'>
+          <header>
+            <div className="header-content">
+              <Link to="/" className="header-title">Basket</Link>
+              <a onClick={this.props.logout} className="logout">Logout</a>
+            </div>
+          </header>
+        </MediaQuery>
+      </div>
     );
   }
 }

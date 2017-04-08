@@ -70,6 +70,7 @@ class CommentForm extends React.Component {
       this.props.closeUpdateForm();
     } else {
       this.setState({content: "", list_item_id: ""});
+      this.props.closeCommentForm();
     }
   }
 
