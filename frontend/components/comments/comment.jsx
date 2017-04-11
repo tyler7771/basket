@@ -26,31 +26,35 @@ class CommentItem extends React.Component {
     });
   }
 
-  commentTitle() {
+  commentTitle(type) {
     const name = this.name(this.props.comment.user.username);
     if (this.props.comment.item) {
       const item = this.name(this.props.comment.item.name);
       return (
-        <p className="comment-title">
+        <p className={type === "mobile" ?
+           "comment-title-mobile" : "comment-title"}>
           {name} in regards to {item}:
         </p>
       );
     } else {
       return (
-        <p className="comment-title">
+        <p className={type === "mobile" ?
+           "comment-title-mobile" : "comment-title"}>
           {name}:
         </p>
       );
     }
   }
 
-  commentEdit() {
+  commentEdit(type) {
     if (this.props.currentUser.id === this.props.comment.user.id
       && this.state.updateCommentFormStatus === "Closed") {
       return (
-        <div className="comment-edit">
+        <div className={this.props.type === "mobile" ?
+           "comment-edit-mobile" : "comment-edit"}>
           <img onClick={this.handleDelete}
-            className="comment-item-delete"
+            className={this.props.type === "mobile" ?
+               "comment-delete-mobile" : "comment-item-delete"}
             src="/assets/trash_can.png" />
           <a onClick={() => this.setState({updateCommentFormStatus: "Open"})}>
             Edit
@@ -60,13 +64,17 @@ class CommentItem extends React.Component {
     }
   }
 
-  display() {
+  display(type) {
     const comment = this.props.comment;
     if (this.state.updateCommentFormStatus === "Closed") {
       return (
-        <div className="comment-item">
+        <div className={type === "mobile" ?
+           "comment-item-mobile" : "comment-item"}>
           {this.commentTitle()}
-          <p className="comment-item-content">{comment.content}</p>
+          <p className={type === "mobile" ?
+             "comment-item-content-mobile" : "comment-item-content"}>
+             {comment.content}
+           </p>
         </div>
       );
     } else {
@@ -77,7 +85,8 @@ class CommentItem extends React.Component {
             commentId={this.props.comment.id}
             listId={this.props.listId}
             closeUpdateForm={this.closeUpdateForm}
-            action={this.props.updateComment}/>
+            action={this.props.updateComment}
+            type={type}/>
         </div>
       );
     }
@@ -92,9 +101,10 @@ class CommentItem extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <li className="comment">
-          {this.display()}
-          {this.commentEdit()}
+        <li className={this.props.type === "mobile" ?
+           "comment-mobile" : "comment"}>
+          {this.display(this.props.type)}
+          {this.commentEdit(this.props.type)}
         </li>
       );
     }

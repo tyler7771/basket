@@ -32,10 +32,11 @@ class CommentIndex extends React.Component {
     });
   }
 
-  commentHeader() {
+  commentHeader(type) {
     if (this.state.commentFormStatus === "Closed") {
       return (
-        <div className="comment-header">
+        <div className={this.props.type === "mobile" ?
+           "comments-header-mobile" : "comment-header"}>
           <h1>Comments</h1>
           <a onClick={ () => this.setState({commentFormStatus: "Open"}) }>
             New
@@ -44,7 +45,8 @@ class CommentIndex extends React.Component {
       );
     } else {
       return (
-        <div className="comment-header">
+        <div className={this.props.type === "mobile" ?
+           "comments-header-mobile" : "comment-header"}>
           <h1>Comments</h1>
           <a onClick={ () => this.closeCommentForm() }>
             Close
@@ -52,7 +54,8 @@ class CommentIndex extends React.Component {
           <CommentForm formType="Add"
             listId={this.props.listid}
             action={this.props.createComment}
-            closeCommentForm={this.closeCommentForm}/>
+            closeCommentForm={this.closeCommentForm}
+            type={type}/>
         </div>
       );
     }
@@ -64,15 +67,18 @@ class CommentIndex extends React.Component {
 
   render () {
     return (
-      <div className="comments-show">
-        {this.commentHeader()}
-        <ul>
+      <div className={this.props.type === "mobile" ?
+         "comments-show-mobile" : "comments-show"}>
+        {this.commentHeader(this.props.type)}
+        <ul className={this.props.type === "mobile" ?
+           "comment-index-mobile" : ""}>
           {
             this.props.comments.map(comment => (
               <CommentItem
                 key={comment.id}
                 comment={comment}
-                listId={this.props.listid} />
+                listId={this.props.listid}
+                type={this.props.type} />
             ))
           }
         </ul>

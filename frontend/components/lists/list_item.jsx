@@ -58,10 +58,11 @@ class ListItem extends React.Component {
     }
   }
 
-  listAssociation() {
+  listAssociation(type) {
     if (this.props.listItem.user_id && this.props.itemType === "list") {
       return (
-        <div className="list-item-association-info">
+        <div className={type === "mobile" ?
+           "list-item-association-mobile" : "list-item-association-info"}>
           <p>Assigned to:</p>
           <p>{this.name(this.props.listItem.user.username)}</p>
         </div>
@@ -70,39 +71,59 @@ class ListItem extends React.Component {
       return (
         <div className="list-item-association-info">
           <p>Assigned to List:</p>
-          <Link to={`/list/${this.props.listItem.list.id}`}>{this.name(this.props.listItem.list.name)}</Link>
+          <Link to={`/list/${this.props.listItem.list.id}`}>
+            {this.name(this.props.listItem.list.name)}
+          </Link>
         </div>
       );
     }
   }
 
-  titleDisplay(){
+  titleDisplay(type){
     if (this.props.listItem.user_id) {
       return (
-        <h2 className="list-item-title-assigned">{this.name(this.props.listItem.name)}</h2>
+        <h2 className={type === "mobile" ?
+           "list-item-title-assigned-mobile" : "list-item-title-assigned"}>
+           {this.name(this.props.listItem.name)}
+        </h2>
       );
     } else {
       return (
-        <h2 className="list-item-title">{this.name(this.props.listItem.name)}</h2>
+        <h2 className={type === "mobile" ?
+           "list-item-title-mobile" : "list-item-title"}>
+           {this.name(this.props.listItem.name)}
+        </h2>
       );
     }
   }
 
   display() {
+    const type = this.props.type;
     const listItem = this.props.listItem;
     if (this.state.updateItemFormStatus === "Closed" && this.props.itemType === "list") {
       return (
-        <div className="list-item">
-          {this.itemPurchased()}
-          <p className="list-item-quantity">{listItem.quantity}</p>
-          {this.titleDisplay()}
-          <img onClick={this.handleDelete}
-            className="list-item-delete"
-            src="/assets/trash_can.png" />
-          <a onClick={() => this.setState({updateItemFormStatus: "Open"})}>
-            Edit
-          </a>
-          {this.listAssociation()}
+        <div className={type === "mobile" ? "list-item-mobile" : "list-item"}>
+          <div className={type === "mobile" ?
+            "list-item-details-mobile" : "list-item-details"}>
+            {this.itemPurchased()}
+            <p className={type === "mobile" ?
+               "list-item-quantity-mobile" : "list-item-quantity"}>
+               {listItem.quantity}
+            </p>
+            {this.titleDisplay(type)}
+            {this.listAssociation(type)}
+          </div>
+          <div className={type === "mobile" ?
+            "list-item-buttons-mobile" : "list-item-buttons"}>
+            <img onClick={this.handleDelete}
+              className={type === "mobile" ?
+                "list-item-delete-mobile" : "list-item-delete"}
+              src="/assets/trash_can.png" />
+            <a className={type === "mobile" ? "list-item-edit-mobile" : ""}
+              onClick={() => this.setState({updateItemFormStatus: "Open"})}>
+              Edit
+            </a>
+          </div>
         </div>
       );
     } else if (this.props.itemType === "user") {

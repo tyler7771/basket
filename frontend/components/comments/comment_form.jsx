@@ -75,17 +75,24 @@ class CommentForm extends React.Component {
   }
 
   render () {
+    const type = this.props.type;
     return (
-      <form onSubmit={this.handleSubmit} className="new-comment-form">
+      <form onSubmit={this.handleSubmit}
+        className={type === "mobile" ?
+         "new-comment-form-mobile" : "new-comment-form"}>
         <textarea
-          className="new-comment-content"
+          className={type === "mobile" ?
+             "new-comment-content-mobile" : "new-comment-content"}
           placeholder="Comment"
           value={this.state.content}
           onChange={this.update("content")} />
 
-        <div className="new-comment-item-and-submit">
+        <div className={type === "mobile" ?
+           "new-comment-item-and-submit-mobile" :
+           "new-comment-item-and-submit"}>
           <select
-            className="new-comment-item"
+            className={type === "mobile" ?
+               "new-comment-item-mobile" : "new-comment-item"}
             value={this.state.list_item_id}
             onChange={this.update("list_item_id")}>
             <option>Assign to Item</option>
@@ -98,7 +105,8 @@ class CommentForm extends React.Component {
             }
           </select>
 
-          <input className="new-item-form-submit"
+          <input className={type === "mobile" ?
+             "new-comment-submit-mobile" : "new-item-form-submit"}
             type="submit"
             value={this.props.formType.formType} />
         </div>

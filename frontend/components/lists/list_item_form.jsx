@@ -85,15 +85,20 @@ class ListItemForm extends React.Component {
   }
 
   render () {
+    const type = this.props.type;
     return (
-      <form onSubmit={this.handleSubmit} className="new-item-form">
+      <form onSubmit={this.handleSubmit}
+        className={type === "mobile" ?
+          "new-item-form-mobile" : "new-item-form"}>
         <input type="text"
-          className="new-item-name"
+          className={type === "mobile" ?
+            "new-item-name-mobile" : "new-item-name"}
           placeholder="Item Name"
           value={this.state.name}
           onChange={this.update("name")} />
         <select
-          className="new-item-user"
+          className={type === "mobile" ?
+            "new-item-user-mobile" : "new-item-user"}
           value={this.state.user_id}
           onChange={this.update("user_id")}>
           <option>Assign to User</option>
@@ -106,11 +111,13 @@ class ListItemForm extends React.Component {
           }
         </select>
         <input type="text"
-          className="new-item-quantity"
+          className={type === "mobile" ?
+            "new-item-quantity-mobile" : "new-item-quantity"}
           placeholder="Quantity"
           value={this.state.quantity}
           onChange={this.update("quantity")} />
-        <input className="new-item-form-submit"
+        <input className={type === "mobile" ?
+          "new-item-form-submit-mobile" : "new-item-form-submit"}
           type="submit"
           value={this.props.formType.formType} />
       </form>

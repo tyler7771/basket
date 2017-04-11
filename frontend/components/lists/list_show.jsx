@@ -95,19 +95,21 @@ class ListShow extends React.Component {
               placeholder="Add User"
               value={this.state.userSearch}
               onChange={this.updateSearchParams} />
-            {this.searchResults()}
+            {this.searchResults(type)}
           </form>
         </div>
       );
     } else {
       return (
-          <form onSubmit={this.handleUpdate} className="list-details">
+          <form onSubmit={this.handleUpdate}
+            className={type === "mobile" ? "list-details-mobile" : "list-details"}>
             <input type="text"
-              className="update-list-name"
+              className={type === "mobile" ? "update-list-name-mobile" : "update-list-name"}
               placeholder="List Name"
               value={this.state.listName}
               onChange={this.update("listName")} />
-            <input className="list-form-update" type="submit" value="Update" />
+            <input className={type === "mobile" ? "list-form-update-mobile" : "list-form-update"}
+              type="submit" value="Update" />
           </form>
       );
     }
@@ -120,17 +122,17 @@ class ListShow extends React.Component {
     this.handleSearch("");
   }
 
-  searchResults() {
+  searchResults(type) {
     if (this.props.searchResults.length !== 0) {
       return (
         <ul>
           {
             this.props.searchResults.map(result => (
-              <li className="search-result-item"
+              <li className={type === "mobile" ? "search-result-item-mobile" : "search-result-item"}
                   key={result.id}
                   onClick={() => this.handleSearchAdd(result.id)}>
-                {result.username}
-                <a className="user-add-button">Add</a>
+                <p>{result.username}</p>
+                <a className={type === "mobile" ? "user-add-button-mobile" : "user-add-button"}>Add</a>
               </li>
             ))
           }
@@ -162,7 +164,7 @@ class ListShow extends React.Component {
           listId={this.props.params.listid}
           action={this.props.createListItem}
           type={type}/>
-        <ul>
+        <ul className={type === "mobile" ? "list-item-index-mobile" : "list-item-index"}>
           {
             this.props.listItems.map(listItem => (
               <ListItem
