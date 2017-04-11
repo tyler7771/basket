@@ -102,19 +102,15 @@
   width: 100%;
   font-size: 14px;
   padding: 5px;
-  background: url(/assets/select-arrow.png) no-repeat 96% 0;
+  background-color: white;
   height: 29px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  overflow: hidden;
   border-radius: 5px;
 }
 
 .new-comment-item-mobile {
   width: 71%;
   height: 50px;
-  background: url('/assets/select-arrow-large.png') no-repeat 96% 0;
+  background-color: white;
   font-size: 30px;
   margin: 20px 0 0 0;
 }
@@ -192,7 +188,7 @@
   display: inline;
   width: 80px;
   height: 30px;
-  margin: 5px 2%;
+  margin: 5px 0 5px 2%;
   text-align: center;
   border-radius: 5px;
   color: white;

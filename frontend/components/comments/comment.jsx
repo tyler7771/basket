@@ -52,10 +52,9 @@ class CommentItem extends React.Component {
       return (
         <div className={this.props.type === "mobile" ?
            "comment-edit-mobile" : "comment-edit"}>
-          <img onClick={this.handleDelete}
-            className={this.props.type === "mobile" ?
-               "comment-delete-mobile" : "comment-item-delete"}
-            src="/assets/trash_can.png" />
+          <a onClick={this.handleDelete}>
+            Delete
+          </a>
           <a onClick={() => this.setState({updateCommentFormStatus: "Open"})}>
             Edit
           </a>

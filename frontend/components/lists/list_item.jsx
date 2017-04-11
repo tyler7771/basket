@@ -114,10 +114,10 @@ class ListItem extends React.Component {
           </div>
           <div className={type === "mobile" ?
             "list-item-buttons-mobile" : "list-item-buttons"}>
-            <img onClick={this.handleDelete}
-              className={type === "mobile" ?
-                "list-item-delete-mobile" : "list-item-delete"}
-              src="/assets/trash_can.png" />
+            <a className={type === "mobile" ? "list-item-edit-mobile" : ""}
+              onClick={this.handleDelete}>
+              Delete
+            </a>
             <a className={type === "mobile" ? "list-item-edit-mobile" : ""}
               onClick={() => this.setState({updateItemFormStatus: "Open"})}>
               Edit
