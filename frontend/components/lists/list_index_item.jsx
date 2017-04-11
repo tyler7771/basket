@@ -24,11 +24,11 @@ class ListIndexItem extends React.Component {
           <h2 className="list-index-title">
             {this.name(this.props.list.name)}
           </h2>
-          <a onClick={this.handleDelete}
+          <div onClick={this.handleDelete}
             className={this.props.type === "mobile" ?
             "list-delete-mobile" : "list-delete"}>
             Delete
-          </a>
+          </div>
         </li>
       </Link>
     );
