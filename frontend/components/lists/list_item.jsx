@@ -111,7 +111,6 @@ class ListItem extends React.Component {
                {listItem.quantity}
             </p>
             {this.titleDisplay(type)}
-            {this.listAssociation(type)}
           </div>
           <div className={type === "mobile" ?
             "list-item-buttons-mobile" : "list-item-buttons"}>
@@ -124,6 +123,7 @@ class ListItem extends React.Component {
               Edit
             </a>
           </div>
+          {this.listAssociation(type)}
         </div>
       );
     } else if (this.props.itemType === "user") {

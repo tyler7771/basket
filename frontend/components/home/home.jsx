@@ -58,7 +58,7 @@ class Home extends React.Component {
         </MediaQuery>
         <MediaQuery query='(min-device-width: 1224px)'>
           <ListIndex />
-          <UserItems />
+          <UserItems type="mobile" />
         </MediaQuery>
       </div>
     );
