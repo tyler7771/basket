@@ -61,6 +61,7 @@ class ListIndex extends React.Component {
   render () {
     return (
       <div className={this.props.type === "mobile" ? "list-index-mobile" : "list-index"}>
+        stuff
         <h1>{this.name(this.props.currentUser.username)}</h1>
         <div className={this.props.type === "mobile" ? "new-list-mobile" : "new-list"}>
           <h2>My Lists</h2>
