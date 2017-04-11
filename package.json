@@ -1,5 +1,5 @@
 {
-  "name": "TheCompass",
+  "name": "Basket",
   "version": "1.0.0",
   "description": "[Live Site](https://basket.herokuapp.com/)",
   "main": "webpack.config.js",
