@@ -29,7 +29,7 @@ opened and pre-filled with the list's current information for editing.
 The show page shows all the list's information, email button, a list item
 add form, all the lists items, and comments for the list.
 
-The email button opens the users email client and pre fills the email with 
+The email button opens the users email client and pre fills the email with
 the lists users, a subject, and a link to the list.
 
 The users are grabbed from state and put together in a string all separated
