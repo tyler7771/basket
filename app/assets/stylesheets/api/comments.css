@@ -79,7 +79,7 @@
 }
 
 .new-comment-content, .new-comment-content-mobile {
-  width: 70%;
+  width: 60%;
   height: 60px;
   padding: 5px;
   border: 1px solid rgb(166, 166, 166);
