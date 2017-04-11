@@ -213,6 +213,10 @@
   padding: 0 10px;
 }
 
+.search-result-item > p {
+  display: inline;
+}
+
 .search-result-item-mobile > p {
   font-size: 40px;
 }
