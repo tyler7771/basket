@@ -214,7 +214,7 @@
 }
 
 .search-result-item > p {
-  display: inline;
+  display: inline; 
 }
 
 .search-result-item-mobile > p {
