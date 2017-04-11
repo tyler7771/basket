@@ -11,29 +11,23 @@ and family to the lists, add items to the list, and comment on the list.
 
 #### Creation and Editing
 
-A user can create a list to track the items they need to buy. When created
-it is added to their index of lists and a link is created for the list show page.
+A user can create a list to track the items they need to buy. When created it is added to their index of lists and a link is created for the list show page.
 
 From the home page they can also view all of the items that have been assigned to them.
 
-![Alt text](http://res.cloudinary.com/dfmvfna21/image/upload/v1478900738/Screen_Shot_2016-11-11_at_1.45.07_PM_2_ly5myc.png)
+![Alt text](http://res.cloudinary.com/dfmvfna21/image/upload/v1491880799/Screen_Shot_2017-04-10_at_8.04.05_PM_c6v0y7.png)
 
-From the List's show page, users have the ability to edit the title of the list.
-Deleting redirects them back to the home page. If updating, a text field is
-opened and pre-filled with the list's current information for editing.
+From the List's show page, users have the ability to edit the title of the list. Deleting redirects them back to the home page. If updating, a text field is opened and pre-filled with the list's current information for editing.
 
-![Alt text](http://res.cloudinary.com/dfmvfna21/image/upload/v1478898392/Screen_Shot_2016-11-11_at_1.05.44_PM_2_npvgex.png)
+![Alt text](http://res.cloudinary.com/dfmvfna21/image/upload/v1491880799/Screen_Shot_2017-04-10_at_8.04.17_PM_uuwwea.png)
 
 #### List Show
 
-The show page shows all the list's information, email button, a list item
-add form, all the lists items, and comments for the list.
+The show page shows all the list's information, email button, a list item add form, all the lists items, and comments for the list.
 
-The email button opens the users email client and pre fills the email with
-the lists users, a subject, and a link to the list.
+The email button opens the users email client and pre fills the email with the lists users, a subject, and a link to the list.
 
-The users are grabbed from state and put together in a string all separated
-by a semicolon.
+The users are grabbed from state and put together in a string all separated by a semicolon.
 
 ```js
 const emailArray = [];
