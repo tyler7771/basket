@@ -80,6 +80,11 @@
   text-shadow: 1px 1px 2px black;
 }
 
+.email-button:hover {
+  cursor: pointer;
+  background-color: #0D47A1;
+}
+
 .edit-button-mobile, .email-button-mobile, .list-form-update-mobile {
   display: inline;
   float: none;
@@ -368,8 +373,8 @@
   background-color: #2196F3;
 }
 
-.item-not-purchased:hover {
-  background-color: #2196F3;
+.item-not-purchased:hover, .item-purchased:hover {
+  background-color: #1565C0;
   cursor: pointer;
 }
 
@@ -445,6 +450,11 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 30px;
+}
+
+.list-item-buttons > a:hover {
+  cursor: pointer;
+  background-color: #0D47A1;
 }
 
 .list-item-edit-mobile {

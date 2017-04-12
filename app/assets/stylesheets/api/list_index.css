@@ -47,6 +47,11 @@ height: 100%;
   margin: 10px 0;
 }
 
+.list-delete:hover {
+  cursor: pointer;
+  background-color: #0D47A1;
+}
+
 .list-delete-mobile {
   float: right;
   padding: 5px 10px;
