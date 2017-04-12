@@ -183,7 +183,7 @@ class ListShow extends React.Component {
   render () {
     return (
       <div className="list-show-page">
-        <MediaQuery query='(min-device-width: 1224px)'>
+        <MediaQuery query='(min-device-width: 1224px)' className="desktop-size">
           <ListIndex className="list-index-component"/>
           {this.mediaResults("desktop")}
           <CommentIndex

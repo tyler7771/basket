@@ -5,6 +5,7 @@ height: 100%;
   padding: 20px;
   display: inline-block;
   position: absolute;
+  overflow: auto;
 }
 
 .list-index > h1 {

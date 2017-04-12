@@ -4,6 +4,11 @@
   position: relative;
 }
 
+.desktop-size {
+  height: 100%;
+  overflow: auto;
+}
+
 .list-show, .list-show-mobile {
   background: white;
   margin: 20px 2%;
