@@ -20,7 +20,7 @@ ul {
 body, main, html {
   height: 100%;
   overflow: auto;
-  background: black;
+  background: #90CAF9;
 }
 
 .app {
